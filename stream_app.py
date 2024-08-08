@@ -1,10 +1,15 @@
 import streamlit as st
 import requests
+from requests.exceptions import ConnectionError
 
 def get_prediction(text):
     url = 'http://localhost:5000/predict'  # Update with your Flask server URL
     data = {'text': text}
     response = requests.post(url, json=data)
+    # Handle response
+    except ConnectionError as e:
+    # Log the error or handle it appropriately
+    print(f"ConnectionError: {e}")
     return response.json()['sentiment']
 
 st.title('Sentiment Analysis')
