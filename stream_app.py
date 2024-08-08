@@ -7,7 +7,7 @@ def get_prediction(text):
     data = {'text': text}
     response = requests.post(url, json=data)
     # Handle response
-    except ConnectionError as e:
+ except ConnectionError as e:
     # Log the error or handle it appropriately
     print(f"ConnectionError: {e}")
     return response.json()['sentiment']
